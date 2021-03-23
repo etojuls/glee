@@ -31,7 +31,7 @@ $heading: #191919;
 
 %rubik-500 {
     font-family: 'Rubik', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 %btn {
@@ -41,4 +41,14 @@ $heading: #191919;
     background-color: $subtitle;
     border: none;
     cursor: pointer;
+    transition: all 0.3 ease-in-out;
+
+    &:hover {
+        background-color: $inactive;
+    }
+}
+
+%text {
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

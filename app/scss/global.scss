@@ -18,9 +18,41 @@ body {
     max-width: 1220px;
     margin: 0 auto;
     padding: 0 10px;
+    &--big {
+        max-width: 1800px;
+    }
 }
-.container__large {
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 0 10px;
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.filter-btn {
+    @extend %text;
+    @extend %dmsans-700;
+    color: $inactive;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline-color: $bg-accent;
+    max-height: 35px;
+    max-width: 95px;
+    transition: color 0.3s ease;
+    &:hover {
+        color: $subtitle;
+    }
+}
+
+.icon-search,
+.icon-cart,
+.icon-heart {
+    border-radius: 50%;
+    cursor: pointer;
 }

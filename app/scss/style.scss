@@ -4,14 +4,20 @@
 @import 'libs';
 @import 'global';
 
-.container__large-inner {
+.navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 50px auto 45px;
 }
 
-.menu {
+.logo {
+    max-width: 155px;
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.navigation-menu {
     &__list {
         display: flex;
     }
@@ -21,55 +27,71 @@
     }
 
     &__item {
+        @extend %text;
         @extend %rubik-500;
         font-size: 15px;
         color: $accent;
-        // font-weight: 700;
+        max-height: 30px;
+        max-width: 70px;
+        transition: all 0.5s ease;
+
+        &:hover {
+            transform: scale(1.4);
+        }
     }
 }
 
-.navigation {
+.navigation-icons {
     display: flex;
     align-items: center;
 
     &__link {
         position: relative;
+        background-color: transparent;
+        border: none;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+            transform: scale(1.3);
+        }
 
         &--search,
         &--dots {
             border-radius: 50%;
+            border: none;
         }
 
         &--search {
-            padding: 19px;
+            padding: 15px 19px 5px;
             background-color: #edf1f4;
         }
 
+        &--heart,
+        &--cart {
+            margin-top: 10px;
+        }
+
         &--dots {
-            padding: 15px;
+            padding: 12px 14px 4px;
             background-color: $subtitle;
         }
     }
 
     &__user {
         display: flex;
+        justify-content: space-evenly;
         background-color: $bg-accent;
         border-radius: 25px;
         margin: 0 20px;
-        padding: 17px 40px;
+        padding: 5px;
+        width: 180px;
+        height: 50px;
     }
 
-    &__link--heart {
-        margin-right: 60px;
-
-        &::after {
-            content: "|";
-            position: absolute;
-            color: #fde7d3;
-            left: 45px;
-            bottom: -24px;
-            font-size: 37px;
-        }
+    &__line {
+        color: #fde7d3;
+        font-size: 35px;
+        line-height: 1;
     }
 
     &__num {
@@ -88,46 +110,59 @@
     }
 }
 
-.slider {
+.slider-top {
 
     &__items {
         background-color: $bg-accent;
         height: 820px;
-        position: relative;
+        // position: relative;
     }
 
     &__item-inner {
         display: flex;
-        position: absolute;
-        margin: 0;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%)
+        justify-content: center;
+        align-items: center;
+
+        // position: absolute;
+        // margin: 0;
+        // top: 50%;
+        // left: 50%;
+        // // margin-right: -50%;
+        // transform: translate(-50%, -50%);
     }
 
     &__heading {
         @extend %rubik-500;
+        @extend %text;
         font-size: 72px;
         line-height: 1;
         color: $title;
         max-width: 430px;
+        max-height: 139px;
         margin-bottom: 40px;
     }
 
+    &__text {
+        margin-right: 130px;
+    }
+
     &__descr {
+        @extend %text;
         @extend %rubik-400;
         font-size: 18px;
         line-height: 1.6;
         color: $accent;
         max-width: 370px;
+        max-height: 80px;
         margin-bottom: 40px;
     }
 
-    &__btn {
+    &__link {
         @extend %btn;
         padding: 25px 100px 25px 25px;
         position: relative;
+        transition: all 0.3s ease-in-out;
+
 
         &::after {
             content: '';
@@ -143,6 +178,9 @@
     &__img {
         position: relative;
         padding-top: 100px;
+        max-width: 660px;
+        max-height: 390px;
+        object-fit: contain;
         transform-style: preserve-3d;
 
         &::after {
@@ -190,31 +228,72 @@
 }
 
 .info {
-    padding: 50px 0;
-    display: flex;
-    justify-content: space-around;
-    background-color: $light-bg-accent;
+
+    &__items {
+        // padding: 50px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+        background-color: $light-bg-accent;
+    }
 
     &__item {
+        padding: 50px 150px;
         display: flex;
         align-items: center;
+
+        &:not(:last-child) {
+            border-right: 1px solid #e8e4df;
+        }
     }
 
     &__text {
         margin-left: 30px;
+        min-height: 100px;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: left center;
+            height: 50px;
+            width: 50px;
+            top: 7%;
+            right: 114%;
+        }
+
+        &--first::before {
+            background-image: url(../images/time.svg);
+        }
+
+        &--second::before {
+            background-image: url(../images/delivery-truck.svg);
+        }
+
+        &--third::before {
+            background-image: url(../images/credit-card.svg);
+        }
     }
 
     &__name {
+        @extend %text;
         @extend %dmsans-700;
         color: $active;
         font-size: 18px;
         line-height: 2.2;
+        max-height: 30px;
+        max-width: 220px
     }
 
     &__descr {
+        @extend %text;
         @extend %dmsans-400;
         max-width: 213px;
         color: $inactive;
+        max-height: 60px;
+        max-width: 220px
     }
 }
 
@@ -222,33 +301,29 @@
     padding: 70px 0 180px;
 
     &__heading {
+        @extend %text;
         @extend %dmsans-700;
         font-size: 36px;
         color: $heading;
-        text-align: center;
+        margin: 0 auto;
+        max-height: 50px;
+        max-width: 370px;
     }
 
     &__filter {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-
-    &__btn {
-        margin: 35px 0 70px;
-        @extend %dmsans-700;
-        color: $inactive;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
+        &-btn {
+            margin: 35px 0 70px;
+        }
+        &-btn:not(:last-child) {
+            margin-right: 30px;
+        }
     }
 
     .mixitup-control-active {
         color: $subtitle;
-    }
-
-    &__btn:not(:last-child) {
-        margin-right: 30px;
     }
 
     &__content {
@@ -283,17 +358,26 @@
 
     &__img {
         margin-bottom: 60px;
+        max-height: 235px;
+        min-width: 160px;
+        object-fit: contain
     }
 
     &__title {
+        @extend %text;
         @extend %dmsans-500;
         color: $title;
+        max-width: 125px;
+        max-height: 30px;
     }
 
     &__price {
+        @extend %text;
         @extend %dmsans-700;
         color: $subtitle;
         margin-bottom: 35px;
+        max-width: 125px;
+        max-height: 30px;
     }
 
     &__hover {
@@ -307,10 +391,8 @@
     &__search,
     &__cart,
     &__like {
-        cursor: pointer;
-        border-radius: 50%;
-        padding: 19px;
-        background-color: #fff;
+        padding: 15px 10px 5px;
+        background-color: #f6f5f5;
         transition: all 0.3s ease-in;
 
         &:not(:last-child) {
@@ -341,7 +423,10 @@
     }
 
     &__title {
+        @extend %text;
         @extend %dmsans-700;
+        max-width: 170px;
+        max-height: 50px;
         font-size: 16px;
         color: #1f2044;
         text-transform: uppercase;
@@ -362,12 +447,15 @@
 
     &__link,
     &__text,
-    &__nav--link,
+    &__nav-link,
     &__copy {
         @extend %rubik-400;
+        @extend %text;
         color: $btn;
         font-style: normal;
         line-height: 1.7;
+        max-height: 53px;
+        max-width: 390;
     }
 
     &__text {
@@ -379,7 +467,7 @@
         display: flex;
     }
 
-    &__form--email {
+    &__form-email {
         background-color: $light-bg-accent;
         border: none;
         padding: 7px;
@@ -391,7 +479,7 @@
         }
     }
 
-    &__form--btn {
+    &__form-btn {
         @extend %btn;
         font-size: 14px;
         padding: 15px;
@@ -409,16 +497,17 @@
         margin: 35px 0;
     }
 
-    &__nav--link:not(:last-child) {
-        margin-right: 30px;
-        position: relative;
+    .footer__nav {
+        display: flex;
+        &-list:not(:last-child) {
+            margin-right: 30px;
+            position: relative;
 
-        &:after {
-            content: '|';
-            position: absolute;
-            right: -45%;
+            &:after {
+                content: '|';
+                position: absolute;
+                right: -45%;
+            }
         }
     }
 }
-
-@import 'media';
