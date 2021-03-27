@@ -4,6 +4,8 @@ body {
 }
 
 body {
+    font-family: 'DM Sans';
+    color: $title;
     font-size: 16px;
     line-height: 1.9;
     display: flex;
@@ -34,25 +36,10 @@ body {
     border: 0;
 }
 
-.filter-btn {
-    @extend %text;
-    @extend %dmsans-700;
-    color: $inactive;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    outline-color: $bg-accent;
-    max-height: 35px;
-    max-width: 95px;
-    transition: color 0.3s ease;
-    &:hover {
-        color: $subtitle;
-    }
-}
-
 .icon-search,
 .icon-cart,
-.icon-heart {
+.icon-heart,
+.icon-dots {
     border-radius: 50%;
     cursor: pointer;
 }

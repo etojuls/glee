@@ -1,0 +1,98 @@
+.footer {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin: 88px 0 67px;
+    }
+
+    &__logo,
+    &__title {
+        display: block;
+        margin-bottom: 11px;
+    }
+
+    &__title {
+        @extend %text;
+        @extend %dmsans-700;
+        max-width: 170px;
+        max-height: 50px;
+        font-size: 16px;
+        color: #1f2044;
+        text-transform: uppercase;
+    }
+
+    &__address {
+        max-width: 205px
+    }
+
+    &__link:not(:last-child) {
+        margin-bottom: 6px;
+    }
+
+    &__link,
+    &__text {
+        display: block;
+    }
+
+    &__link,
+    &__text,
+    &__nav-link,
+    &__copy {
+        @extend %rubik-400;
+        @extend %text;
+        color: $btn;
+        font-style: normal;
+        line-height: 1.7;
+        max-height: 53px;
+        max-width: 390;
+    }
+
+    &__text {
+        max-width: 270px;
+        margin-bottom: 32px;
+    }
+
+    &__form {
+        display: flex;
+    }
+
+    &__form-email {
+        background-color: $light-bg-accent;
+        border: none;
+        padding: 7px;
+
+        &::placeholder {
+            color: #234969;
+            font-size: 12px;
+        }
+    }
+
+    &__form-btn {
+        @include btn;
+        font-size: 14px;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    &__bottom-inner {
+        border-top: 1px solid #dae4e9;
+        display: flex;
+        justify-content: space-between;
+        padding: 26px 0;
+    }
+
+    .footer__nav {
+        display: flex;
+
+        &-list:not(:last-child) {
+            margin-right: 30px;
+            position: relative;
+
+            &:after {
+                content: '|';
+                position: absolute;
+                right: -45%;
+            }
+        }
+    }
+}

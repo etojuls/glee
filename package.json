@@ -9,6 +9,7 @@
   "author": "Julia Pusulia",
   "license": "ISC",
   "devDependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.3.0",
     "gulp-rigger": "^0.5.8",

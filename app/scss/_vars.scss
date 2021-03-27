@@ -3,24 +3,22 @@ $subtitle: #a3bbc8;
 $accent: #436372;
 $bg-accent: #fcd7b6;
 $light-bg-accent: #fef7f0;
+$semilight-bg-accent: #feefe2;
 $btn: #7b7b7b;
 $active: #414141;
 $inactive: #585858;
-$heading: #191919;
+$heading: #1a1a1a;
 
 
 %dmsans-400 {
-    font-family: 'DM Sans', sans-serif;
     font-weight: 400;
 }
 
 %dmsans-500 {
-    font-family: 'DM Sans', sans-serif;
     font-weight: 500;
 }
 
 %dmsans-700 {
-    font-family: 'DM Sans', sans-serif;
     font-weight: 700;
 }
 
@@ -34,8 +32,13 @@ $heading: #191919;
     font-weight: 500;
 }
 
-%btn {
-    @extend %dmsans-400;
+%poppins-700 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+@mixin btn {
+    font-weight: 400;
     line-height: 1;
     color: #fff;
     background-color: $subtitle;
@@ -46,9 +49,44 @@ $heading: #191919;
     &:hover {
         background-color: $inactive;
     }
+    :focus {
+        border: 2px solid $active;
+    }
+}
+
+@mixin filter-btn {
+        @extend %text;
+        @extend %dmsans-700;
+        color: $inactive;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        outline-color: $bg-accent;
+        max-height: 35px;
+        max-width: 95px;
+        transition: color 0.3s ease;
+        &:hover {
+            color: $subtitle;
+        }
+}
+
+@mixin heading {
+    @extend %text;
+    @extend %dmsans-700;
+    font-size: 36px;
+    color: $heading;
+    max-height: 68px;
+    max-width: 400px;
 }
 
 %text {
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+@function max($numbers...) {
+  @return m#{a}x(#{$numbers});
+}
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
 }
