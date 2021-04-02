@@ -8,16 +8,33 @@ $(function(){
         // autoplaySpeed: 2000,
     });
 
-    $('.article-bottom').slick({
-        // dots: false,
+    $('.partner-slider').slick({
         arrows: false,
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 5,
-        // centerMode: true,
         // autoplay: true,
         // autoplaySpeed: 2000,
+        responsive: [
+            {
+                breakpoint: 970,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                }
+            }
+        ]
     });
+
+    $('.btn-menu').on('click', function(){
+        $('.nav-wrap').toggleClass('open');
+        $('body').toggleClass('menu-open');
+    });
+
+    $('.btn-menu').on('click', function(){
+        $('.navigation-menu').toggleClass('navigation-menu--active');
+    });
+
 
     var containerEl1 = document.querySelector('[data-ref="container-1"]');
     var containerEl2 = document.querySelector('[data-ref="container-2"]');

@@ -1,36 +1,129 @@
+.logo-top {
+    @include r(970) {
+        flex: 1 0 auto;
+    }
+}
+
 .navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 50px auto 45px;
-}
 
-.logo {
-    max-width: 155px;
-    max-height: 50px;
-    object-fit: contain;
-}
+    @include r(970) {
+        margin: 22px auto 23px;
+    }
 
-.navigation-menu {
-    &__list {
+    .navigation-menu {
         display: flex;
-    }
 
-    &__item:not(:last-child) {
-        margin-right: 30px;
-    }
+        @include r(970) {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            flex-direction: column;
+            justify-content: space-evenly;
+            text-align: center;
+            background-color: rgba(126, 97, 2, 0.671);
+            transform: translate(-100%, -100%) scale(0.5);
+            border-radius: 100%;
+            height: 100vh;
+            transition: all 0.5s ease 0.1s;
+            z-index: 10;
+        }
 
-    &__item {
-        @extend %text;
-        @extend %rubik-500;
-        font-size: 15px;
-        color: $accent;
-        max-height: 30px;
-        max-width: 70px;
-        transition: all 0.5s ease;
+        &__item:not(:last-child) {
+            margin-right: 30px;
 
-        &:hover {
-            transform: scale(1.4);
+            @include r(1260) {
+                margin-right: 18px;
+            }
+
+            @include r(970) {
+                margin: 0 auto;
+            }
+        }
+
+        &__item {
+            @include line-clamp (15px, 1, 1);
+            @extend %rubik-500;
+            color: $accent;
+            max-width: 70px;
+            transition: all 0.5s ease;
+            position: relative;
+            display: block;
+
+            @include r(970) {
+                color: #fff;
+                opacity: 0;
+                transition-delay: 0.5s;
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $bg-accent;
+                transform: scaleX(0);
+                transform-origin: right center;
+                transition-duration: 0.5s;
+                transition-property: transform;
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $accent;
+                transform: scaleX(0);
+                transform-origin: right center;
+                transition-duration: 0.5s;
+                transition-property: transform;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: left center;
+            }
+
+            &:hover {
+                font-weight: 600;
+            }
+
+            &--home {
+                font-weight: 600;
+
+                &:hover::after {
+                    transition-delay: 0.25s;
+                }
+
+                &::before {
+                    transform: scaleX(1);
+                    transform-origin: left center;
+                    transition-duration: 0.5s;
+                    transition-delay: 0.25s;
+                    transition-property: transform;
+                }
+
+                &:hover::before {
+                    transform: scaleX(0);
+                    transform-origin: right center;
+                    transition-delay: 0s;
+                }
+            }
+
+            &:last-child {
+                @include r(970) {
+                    margin: 0 auto;
+                }
+            }
         }
     }
 }
@@ -43,18 +136,31 @@
         position: relative;
         background-color: transparent;
         border: none;
-        transition: all 0.5s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        & svg {
+            transition: all 0.3s ease-in-out;
+        }
+        &:hover {
+            & svg {
+                fill: #FF69B4;
+            }
+        }
     }
 
     &__search {
-        padding: 15px 19px 5px;
         background-color: #edf1f4;
+
+        @include r(470) {
+            background: none;
+        }
     }
 
-
     &__dots {
-        padding: 12px 14px 4px;
         background-color: $subtitle;
+
+        @include r(470) {
+            background: none;
+        }
     }
 
     &__user {
@@ -64,20 +170,26 @@
         background-color: $bg-accent;
         border-radius: 25px;
         margin: 0 20px;
-        padding: 5px;
         width: 180px;
-        height: 50px;
+        height: 45px;
+
+        @include r(1260) {
+            width: 112px;
+            margin: 0 8px;
+        }
+
+        @include r(470) {
+            background: none;
+            margin: 0;
+            width: 70px;
+        }
     }
 
-    &__search svg,
-    &__heart svg,
-    &__cart svg,
     &__dots svg {
-        transition: all 0.3s ease-in-out;
-            &:hover {
-        transform: scale(1.4);
+        @include r(470) {
+            fill: $accent;
+        }
     }
-}
 
     &__heart::after {
         content: '';
@@ -85,8 +197,12 @@
         position: absolute;
         height: 35px;
         width: 1px;
-        top: -8px;
-        right: -30px;
+        top: 4px;
+        right: -27px;
+
+        @include r(1260) {
+            right: -10px;
+        }
     }
 
     &__num {
@@ -97,16 +213,37 @@
         color: $title;
         width: 16px;
         height: 16px;
-        right: -10px;
-        top: -4px;
+        right: 1px;
+        top: 6px;
         border-radius: 50%;
         background-color: #fff;
+
+        @include r(470) {
+            background-color: $bg-accent;
+        }
     }
 }
-// & svg {
-//             transition: all 0.3s ease-in-out;
-//         }
 
-//         & svg:hover {
-//             fill: #ff006b;
-//                 }
+.nav-wrap {
+    display: none;
+
+    @include r(970) {
+        display: block;
+    }
+}
+
+.navigation-menu.navigation-menu--active {
+    @include r(970) {
+        transform: translateY(0) scale(1);
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+.navigation-menu--active .navigation-menu__item {
+    @include r(970) {
+        opacity: 1;
+    }
+}

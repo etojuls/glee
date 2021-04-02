@@ -23,7 +23,7 @@
 
 
 <symbol id="play">
-<svg id="big-c"
+<svg
  xmlns="http://www.w3.org/2000/svg"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  width="127px" height="127px">
@@ -48,7 +48,5 @@
 </svg>
 </symbol>
 
+
 </svg>
-
-
-

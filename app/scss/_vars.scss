@@ -37,56 +37,20 @@ $heading: #1a1a1a;
     font-weight: 700;
 }
 
-@mixin btn {
-    font-weight: 400;
-    line-height: 1;
-    color: #fff;
-    background-color: $subtitle;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3 ease-in-out;
+@function max($numbers...) {
+    @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+    @return m#{i}n(#{$numbers});
+}
+
+@mixin product-card {
+    background-color: #fcfcfc;
+    box-shadow: 12px 9px 14px 3px rgba(37, 37, 37, 0.05);
+    border-radius: 10px;
 
     &:hover {
-        background-color: $inactive;
+        transform: translateY(2px);
     }
-    :focus {
-        border: 2px solid $active;
-    }
-}
-
-@mixin filter-btn {
-        @extend %text;
-        @extend %dmsans-700;
-        color: $inactive;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        outline-color: $bg-accent;
-        max-height: 35px;
-        max-width: 95px;
-        transition: color 0.3s ease;
-        &:hover {
-            color: $subtitle;
-        }
-}
-
-@mixin heading {
-    @extend %text;
-    @extend %dmsans-700;
-    font-size: 36px;
-    color: $heading;
-    max-height: 68px;
-    max-width: 400px;
-}
-
-%text {
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-@function max($numbers...) {
-  @return m#{a}x(#{$numbers});
-}
-@function min($numbers...) {
-  @return m#{i}n(#{$numbers});
 }

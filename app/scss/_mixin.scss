@@ -1,0 +1,72 @@
+@mixin btn {
+    font-weight: 400;
+    line-height: 1;
+    color: #fff;
+    background-color: $subtitle;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: $inactive;
+    }
+
+    &:focus {
+        border: 2px solid $active;
+    }
+
+    &:active {
+        background-color: $subtitle;
+    }
+}
+
+@mixin filter-btn {
+    @include line-clamp (16, 1, 1);
+    @extend %dmsans-700;
+    color: $inactive;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline-color: $bg-accent;
+    max-height: 35px;
+    max-width: 95px;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $subtitle;
+    }
+}
+
+@mixin heading {
+    @include line-clamp (36px, 1, 2);
+    @extend %dmsans-700;
+    color: $heading;
+    max-width: 400px;
+}
+
+
+@mixin line-clamp ($font-size,
+    $line-height,
+    $lines-to-show,
+) {
+    display: block; // Fallback for non-webkit browsers
+    display: -webkit-box;
+    font-size: ($font-size);
+    max-height: (($font-size * $line-height * $lines-to-show)); // Fallback for non-webkit browsers
+    line-height: $line-height;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines-to-show;
+}
+
+@mixin r($width) {
+    @media only screen and (max-width: $width+ "px") {
+        @content;
+    }
+}
+
+// @mixin font ($ff, $fw) {
+//     font-family: $ff, sans-serif;
+//     font-weight: $fw;
+// }

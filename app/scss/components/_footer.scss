@@ -3,30 +3,62 @@
         display: flex;
         justify-content: space-between;
         margin: 88px 0 67px;
+
+        @include r(970) {
+            flex-direction: column;
+            margin: 49px 0 7px;
+        }
+    }
+
+
+    &__item {
+        @include r(970) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__list {
+        @include r(970) {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
     }
 
     &__logo,
     &__title {
         display: block;
         margin-bottom: 11px;
+
     }
 
     &__title {
-        @extend %text;
+        @include line-clamp (16px, 1.31, 1);
         @extend %dmsans-700;
         max-width: 170px;
-        max-height: 50px;
-        font-size: 16px;
         color: #1f2044;
         text-transform: uppercase;
+
+        @include r(970) {
+            line-height: 1;
+        }
     }
 
     &__address {
-        max-width: 205px
+        max-width: 205px;
+
+        @include r(970) {
+            margin-bottom: 30px;
+        }
     }
+
 
     &__link:not(:last-child) {
         margin-bottom: 6px;
+
+        @include r(970) {
+            margin-right: 30px;
+        }
     }
 
     &__link,
@@ -39,12 +71,16 @@
     &__nav-link,
     &__copy {
         @extend %rubik-400;
-        @extend %text;
+        @include line-clamp (16px, 1.7, 2);
         color: $btn;
         font-style: normal;
-        line-height: 1.7;
-        max-height: 53px;
         max-width: 390;
+        transition: color 0.3s ease;
+    }
+
+    &__link:hover,
+    &__nav-link:hover {
+        color: #000;
     }
 
     &__text {
@@ -56,7 +92,7 @@
         display: flex;
     }
 
-    &__form-email {
+    &__email {
         background-color: $light-bg-accent;
         border: none;
         padding: 7px;
@@ -64,6 +100,7 @@
         &::placeholder {
             color: #234969;
             font-size: 12px;
+            font-weight: 700;
         }
     }
 
@@ -79,6 +116,10 @@
         display: flex;
         justify-content: space-between;
         padding: 26px 0;
+
+        @include r(970) {
+            flex-direction: column;
+        }
     }
 
     .footer__nav {
@@ -91,7 +132,12 @@
             &:after {
                 content: '|';
                 position: absolute;
-                right: -45%;
+                right: -41%;
+                top: -2px;
+
+                @include r(970) {
+                    display: none;
+                }
             }
         }
     }
