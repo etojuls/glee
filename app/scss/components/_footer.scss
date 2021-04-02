@@ -25,6 +25,7 @@
         }
     }
 
+
     &__logo,
     &__title {
         display: block;
@@ -49,6 +50,10 @@
 
         @include r(970) {
             margin-bottom: 30px;
+            display: flex;
+            max-width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
     }
 
@@ -74,7 +79,7 @@
         @include line-clamp (16px, 1.7, 2);
         color: $btn;
         font-style: normal;
-        max-width: 390;
+        max-width: 390px;
         transition: color 0.3s ease;
     }
 
