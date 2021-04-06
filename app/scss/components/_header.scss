@@ -2,6 +2,11 @@
     @include r(970) {
         flex: 1 0 auto;
     }
+
+    @include r(470) {
+        max-width: 35%;
+    }
+
 }
 
 .navigation {
@@ -11,11 +16,13 @@
     margin: 50px auto 45px;
 
     @include r(970) {
-        margin: 22px auto 23px;
+        margin: 22px auto;
     }
 
     .navigation-menu {
         display: flex;
+        justify-content: space-between;
+        width: 500px;
 
         @include r(970) {
             position: absolute;
@@ -23,7 +30,8 @@
             right: 0;
             top: 0;
             flex-direction: column;
-            justify-content: space-evenly;
+            // justify-content: space-evenly;
+            justify-content: center;
             text-align: center;
             background-color: rgba(126, 97, 2, 0.671);
             transform: translate(-100%, -100%) scale(0.5);
@@ -31,18 +39,6 @@
             height: 100vh;
             transition: all 0.5s ease 0.1s;
             z-index: 10;
-        }
-
-        &__item:not(:last-child) {
-            margin-right: 30px;
-
-            @include r(1260) {
-                margin-right: 18px;
-            }
-
-            @include r(970) {
-                margin: 0 auto;
-            }
         }
 
         &__item {
@@ -53,11 +49,16 @@
             transition: all 0.5s ease;
             position: relative;
             display: block;
+            padding-bottom: 22px;
 
             @include r(970) {
                 color: #fff;
                 opacity: 0;
                 transition-delay: 0.5s;
+                max-width: 100%;
+                right: 0;
+                left: 0;
+                padding: 20px;
             }
 
             &::after {
@@ -72,6 +73,11 @@
                 transform-origin: right center;
                 transition-duration: 0.5s;
                 transition-property: transform;
+
+                @include r(970) {
+                    width: 20%;
+                    left: 40%;
+                }
             }
 
             &::before {
@@ -86,23 +92,21 @@
                 transform-origin: right center;
                 transition-duration: 0.5s;
                 transition-property: transform;
-            }
 
-            &:hover::after {
-                transform: scaleX(1);
-                transform-origin: left center;
+                @include r(970) {
+                    width: 20%;
+                    left: 40%;
+                }
             }
 
             &:hover {
-                font-weight: 600;
+                &::after {
+                    transform: scaleX(1);
+                    transform-origin: left center;
+                }
             }
 
             &--home {
-                font-weight: 600;
-
-                &:hover::after {
-                    transition-delay: 0.25s;
-                }
 
                 &::before {
                     transform: scaleX(1);
@@ -112,16 +116,12 @@
                     transition-property: transform;
                 }
 
-                &:hover::before {
-                    transform: scaleX(0);
-                    transform-origin: right center;
-                    transition-delay: 0s;
-                }
-            }
-
-            &:last-child {
-                @include r(970) {
-                    margin: 0 auto;
+                &:hover {
+                    ::before {
+                        transform: scaleX(0);
+                        transform-origin: right center;
+                        transition-delay: 0s;
+                    }
                 }
             }
         }
@@ -137,9 +137,11 @@
         background-color: transparent;
         border: none;
         transition: all 0.3s ease-in-out;
+
         & svg {
-            transition: all 0.3s ease-in-out;
+            transition: fill 0.3s ease-in-out;
         }
+
         &:hover {
             & svg {
                 fill: #FF69B4;
@@ -149,17 +151,16 @@
 
     &__search {
         background-color: #edf1f4;
-
-        @include r(470) {
-            background: none;
-        }
     }
 
     &__dots {
         background-color: $subtitle;
+    }
 
+    &__search,
+    &__dots {
         @include r(470) {
-            background: none;
+            background-color: transparent;
         }
     }
 
@@ -179,7 +180,7 @@
         }
 
         @include r(470) {
-            background: none;
+            background-color: transparent;
             margin: 0;
             width: 70px;
         }
@@ -191,18 +192,42 @@
         }
     }
 
-    &__heart::after {
-        content: '';
-        background-image: url(../images/line.svg);
-        position: absolute;
-        height: 35px;
-        width: 1px;
-        top: 4px;
-        right: -27px;
+    &__heart {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #fde7d3;
+        border-radius: 0;
 
-        @include r(1260) {
-            right: -10px;
+        @include r(470) {
+            border-right: none;
         }
+
+        // ::after {
+        //     content: '';
+        //     background-image: url(../images/line.svg);
+        //     position: absolute;
+        //     height: 35px;
+        //     width: 1px;
+        //     top: 4px;
+        //     right: -27px;
+
+        //     @include r(1260) {
+        //         right: -10px;
+        //     }
+
+        //     @include r(470) {
+        //         display: none;
+        //     }
+        // }
+    }
+
+    &__cart {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__num {
@@ -213,7 +238,7 @@
         color: $title;
         width: 16px;
         height: 16px;
-        right: 1px;
+        right: 23px;
         top: 6px;
         border-radius: 50%;
         background-color: #fff;
@@ -241,9 +266,35 @@
     }
 }
 
+.navigation-icons__search,
+.navigation-icons__heart,
+.navigation-icons__cart {
+    @include r(470) {
+        transition: all 0.5s ease;
+        opacity: 0;
+    }
+}
 
 .navigation-menu--active .navigation-menu__item {
     @include r(970) {
         opacity: 1;
+        z-index: 10;
+        transition-delay: 0.5s;
+    }
+}
+
+.navigation-menu--active.navigation-icons__heart,
+.navigation-menu--active.navigation-icons__search,
+.navigation-menu--active.navigation-icons__cart {
+    @include r(470) {
+        opacity: 1;
+        z-index: 10;
+        transition-delay: 0.5s;
+    }
+}
+
+.navigation-menu--active.navigation-icons__dots {
+    @include r(470) {
+        opacity: 0;
     }
 }

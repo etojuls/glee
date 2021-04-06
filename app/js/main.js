@@ -32,12 +32,11 @@ $(function(){
     });
 
     $('.btn-menu').on('click', function(){
-        $('.navigation-menu').toggleClass('navigation-menu--active');
+        $('.navigation-menu, .navigation-icons__dots, .navigation-icons__search, .navigation-icons__heart, .navigation-icons__cart').toggleClass('navigation-menu--active');
     });
 
-
-    var containerEl1 = document.querySelector('[data-ref="container-1"]');
-    var containerEl2 = document.querySelector('[data-ref="container-2"]');
+    var containerEl1 = document.querySelector('[data-ref="container-mixitup-1"]');
+    var containerEl2 = document.querySelector('[data-ref="container-mixitup-2"]');
     var config = {
     controls: {
         scope: 'local'

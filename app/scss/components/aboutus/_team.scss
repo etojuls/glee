@@ -1,0 +1,118 @@
+.team {
+    padding-top: 120px;
+
+    @include r(970) {
+        padding-top: 60px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+
+        @include r(1260) {
+            flex-wrap: wrap;
+        }
+    }
+
+    &__heading {
+        font-weight: 700;
+        @include line-clamp (36px, 1, 1);
+        margin-bottom: 38px;
+        max-width: 180px;
+
+        @include r(1260) {
+            padding-bottom: 55px;
+            margin: 0 auto;
+        }
+    }
+
+    &__text {
+        @extend %rubik-400;
+        @include line-clamp (16px, 1.87, 9);
+        max-width: 304px;
+        margin-bottom: 40px;
+
+        @include r(1260) {
+            margin: 0 auto;
+            max-width: 100%;
+            padding-bottom: 15px;
+        }
+    }
+
+    &__btn {
+        @include line-clamp (15px, 1, 1);
+        @extend %poppins-600;
+        padding: 19px 60px 29px 18px;
+        max-width: 173px;
+        border-radius: 5px;
+        position: relative;
+
+        @include r(1260) {
+            margin-bottom: 25px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-image: url(../images/aboutus/arrow.svg);
+            width: 15px;
+            height: 11px;
+            right: 21px;
+            top: 20px;
+        }
+    }
+
+    &__items,
+    &__box {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    &__items {
+        max-width: 770px;
+        flex-wrap: wrap;
+
+        @include r(1260) {
+            max-width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    }
+
+    &__box {
+        max-width: 325px;
+        padding: 30px 20px 28px 24px;
+        transform: translateY(-42px);
+        background-color: #fff;
+        box-shadow: 0px 6px 57px 0 rgba(37, 37, 37, 0.05);
+
+        &-name {
+            font-weight: 700;
+            @include line-clamp (22px, 1, 2);
+            max-width: 145px;
+        }
+
+        &-position {
+            @extend %rubik-400;
+            @include line-clamp (16px, 1.875, 1);
+            color: #565872;
+        }
+
+        &-link {
+            background-color: #f6f6f6;
+            height: 41px;
+            width: 41px;
+            display: inline-block;
+            transition: all 0.4s ease;
+
+            &:hover {
+                background-color: $subtitle;
+            }
+
+            &:hover svg {
+                fill: #fff;
+            }
+        }
+    }
+}

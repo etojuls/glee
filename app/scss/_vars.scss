@@ -22,6 +22,11 @@ $heading: #1a1a1a;
     font-weight: 700;
 }
 
+%rubik-300 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 300;
+}
+
 %rubik-400 {
     font-family: 'Rubik', sans-serif;
     font-weight: 400;
@@ -30,6 +35,16 @@ $heading: #1a1a1a;
 %rubik-500 {
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
+}
+
+%rubik-700 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+}
+
+%poppins-600 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 %poppins-700 {
@@ -43,14 +58,4 @@ $heading: #1a1a1a;
 
 @function min($numbers...) {
     @return m#{i}n(#{$numbers});
-}
-
-@mixin product-card {
-    background-color: #fcfcfc;
-    box-shadow: 12px 9px 14px 3px rgba(37, 37, 37, 0.05);
-    border-radius: 10px;
-
-    &:hover {
-        transform: translateY(2px);
-    }
 }

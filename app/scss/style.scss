@@ -1,123 +1,24 @@
+//settings
+
 @import 'vars';
 @import 'fonts';
 @import 'reset';
 @import 'libs';
-@import 'global';
 @import 'mixin';
+@import 'global';
+
+//components
 @import 'components/header';
 @import 'components/footer';
 @import 'components/slider-top';
-@import 'components/info';
+@import 'components/info-service';
 @import 'components/product';
 @import 'components/furniture';
+@import 'components/video-promo';
 @import 'components/insights';
-
-.mix-filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include r(470) {
-        flex-wrap: wrap;
-    }
-
-    &__btn {
-        @include line-clamp (16px, 1, 1);
-        @extend %dmsans-700;
-        margin: 30px 0 30px;
-        color: $inactive;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        outline-color: $bg-accent;
-        max-width: 95px;
-        transition: color 0.3s ease;
-
-        @include r(470) {
-            margin: 6px 0;
-        }
-
-        &:hover {
-            color: $subtitle;
-        }
-
-        & button {
-            border: none;
-            background-color: transparent;
-        }
-    }
-
-    &__item:not(:last-child) {
-        margin-right: 23px;
-    }
-
-    .mixitup-control-active {
-        color: $subtitle;
-    }
-}
-.video-promo {
-
-    &__link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        min-height: 500px;
-
-        @include r(970) {
-            min-height: 275px;
-        }
-
-        &:hover {
-            .video-promo__play {
-                transition: all 0.3s ease;
-                transform: scale(1.1);
-            }
-        }
-    }
-}
-
-.partner-slider {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    align-items: center;
-    // padding-left: 50px;
-    z-index: 5;
-
-    &::before {
-        content: "";
-        position: absolute;
-        background-color: $bg-accent;
-        background-size: cover;
-        opacity: 0.2;
-        width: 1900px;
-        height: 437px;
-        z-index: -1;
-        bottom: -79%;
-    }
-
-    &__logo {
-        overflow: hidden;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        max-height: 100px;
-        width: 100px;
-    }
-
-    &__img {
-        height: 100%;
-        display: block;
-        margin: auto;
-    }
-
-    .slick-track {
-        display: flex;
-        align-items: center;
-        margin-left: 50px;
-    }
-}
+@import 'components/partner-slider';
+//about page
+@import 'components/aboutus/about';
+@import 'components/aboutus/mission';
+@import 'components/aboutus/numbers';
+@import 'components/aboutus/team';

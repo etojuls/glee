@@ -1,4 +1,4 @@
-.info {
+.info-service {
 
     &__items {
         display: flex;
@@ -14,8 +14,14 @@
     &__item {
         padding: 34px 0;
         display: flex;
+        flex-grow: 1;
+        display: flex;
         align-items: center;
-        position: relative;
+        justify-content: center;
+
+        &:not(:last-child) {
+            border-right: 1px solid #e8e4df;
+        }
 
         @include r(1260) {
             padding: 19px 0;
@@ -25,24 +31,19 @@
             padding: 11px 0;
         }
 
-        &:not(:last-child) {
-            ::after {
-                content: "";
-                position: absolute;
-                background-image: url(../images/info-line.svg);
-                height: 166px;
-                width: 1px;
-                top: -34px;
-                left: calc(100% + 150px);
-                background-size: contain;
-                background-repeat: no-repeat;
+        &:before {
+            position: absolute;
+            content: "";
+            background-image: url(../../images/circle.svg);
+            height: 20px;
+            width: 20px;
+            top: 67px;
+            left: -8px;
 
-                @include r (1560) {
-                    background: none;
-                }
+            @include r (1260) {
+                display: none;
             }
         }
-
     }
 
     &__text {
@@ -74,16 +75,22 @@
             }
         }
 
-        &--first::before {
-            background-image: url(../images/time.svg);
+        &--first {
+            &::before {
+                background-image: url(../images/time.svg);
+            }
         }
 
-        &--second::before {
-            background-image: url(../images/delivery-truck.svg);
+        &--second {
+            &::before {
+                background-image: url(../images/delivery-truck.svg);
+            }
         }
 
-        &--third::before {
-            background-image: url(../images/credit-card.svg);
+        &--third {
+            &::before {
+                background-image: url(../images/credit-card.svg);
+            }
         }
     }
 
@@ -102,6 +109,7 @@
         @include line-clamp (16px, 1.87, 2);
         color: $inactive;
         max-width: 220px;
+        height: 60px;
 
         @include r(1260) {
             line-height: 1;

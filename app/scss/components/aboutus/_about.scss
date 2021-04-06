@@ -1,0 +1,16 @@
+.about {
+    &__top {
+        background-color: rgba(163, 187, 200, .2);
+        padding: 35px 0;
+        text-align: center;
+        @include r(970) {
+            padding: 15px 0;
+        }
+    }
+
+    &__title {
+        @include breadcrumbs-heading;
+        padding-bottom: 16px;
+        max-width: 160px;
+    }
+}

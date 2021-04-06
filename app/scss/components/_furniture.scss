@@ -28,8 +28,7 @@
         grid-template-columns: repeat(auto-fill, 370px);
         grid-template-rows: repeat(auto-fill, 246px);
         justify-content: center;
-        grid-column-gap: 30px;
-        grid-row-gap: 30px;
+        grid-gap: 30px;
     }
 
     &__item {
@@ -40,10 +39,6 @@
 
         @include r(470) {
             width: 336px;
-        }
-
-        &:hover {
-            transform: translateY(2px);
         }
     }
 

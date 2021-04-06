@@ -1,27 +1,4 @@
-@mixin btn {
-    font-weight: 400;
-    line-height: 1;
-    color: #fff;
-    background-color: $subtitle;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-        background-color: $inactive;
-    }
-
-    &:focus {
-        border: 2px solid $active;
-    }
-
-    &:active {
-        background-color: $subtitle;
-    }
-}
-
 @mixin filter-btn {
-    @include line-clamp (16, 1, 1);
     @extend %dmsans-700;
     color: $inactive;
     border: none;
@@ -44,6 +21,19 @@
     max-width: 400px;
 }
 
+@mixin breadcrumbs-heading {
+    @include line-clamp (36px, 1, 2);
+    @extend %rubik-300;
+    color: $heading;
+    max-width: 400px;
+    text-align: center;
+    margin: 0 auto;
+
+    @include r(970) {
+        font-size: 27px;
+    }
+
+}
 
 @mixin line-clamp ($font-size,
     $line-height,

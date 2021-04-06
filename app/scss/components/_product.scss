@@ -1,5 +1,9 @@
-.product {
+.week-product {
     padding-top: 79px;
+
+    @include r(470) {
+        padding-top: 40px;
+    }
 
     &__heading {
         @include heading;
@@ -8,6 +12,10 @@
 
         @include r(970) {
             font-size: 25px;
+        }
+
+        @include r(470) {
+            margin-bottom: 20px;
         }
     }
 
@@ -19,8 +27,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, 270px);
         grid-template-rows: repeat(auto-fill, 380px);
-        grid-column-gap: 40px;
-        grid-row-gap: 40px;
+        grid-gap: 40px;
         justify-content: center;
         margin-bottom: 186px;
 
@@ -29,7 +36,7 @@
         }
     }
 
-    &__item {
+    .product-card {
         position: relative;
         display: flex;
         justify-content: flex-end;
@@ -39,80 +46,84 @@
         max-width: 270px;
         padding: 27px 61px 38px;
 
-        &:hover {
-            transform: translateY(2px);
-        }
-
-        &-link {
+        &__link {
             position: absolute;
             top: 0;
             bottom: 0;
             right: 0;
             left: 0;
-            z-index: -1;
+            // z-index: -1;
         }
-    }
 
-    &__item:hover &__hover {
-        visibility: visible;
-        opacity: 1;
-    }
+        &__img {
+            margin-bottom: 29px;
+            max-height: 235px;
+            max-width: 238px;
+            object-fit: contain
+        }
 
+        &__title,
+        &__price {
+            @include line-clamp (16px, 2.5, 1);
+            max-width: 125px;
+        }
 
-    &__img {
-        margin-bottom: 29px;
-        max-height: 235px;
-        max-width: 238px;
-        object-fit: contain
-    }
+        &__title {
+            font-weight: 500;
+            color: $title;
+        }
 
-    &__title,
-    &__price {
-        @include line-clamp (16px, 2.5, 1);
-        max-width: 125px;
-    }
+        &__price {
+            font-weight: 700;
+            color: $subtitle;
+        }
 
-    &__title {
-        @extend %dmsans-500;
-        color: $title;
-    }
+        &__icon {
+            background-color: #fff;
+            box-shadow: 0px 6px 10px 5px rgba(37, 37, 37, 0.07);
+            transition: background-color 0.3s ease-in;
+            border: none;
+            display: inline-block;
 
-    &__price {
-        @extend %dmsans-700;
-        color: $subtitle;
+            &:not(:last-child) {
+                margin-right: 15px;
+            }
+
+            &:hover {
+                background-color: $subtitle;
+            }
+
+            &:hover svg {
+                fill: #fff;
+            }
+        }
     }
 
     &__hover {
         position: absolute;
         visibility: hidden;
         opacity: 0;
-        transition: visibility 0s, opacity 0.3s linear;
+        transition: all 0.3s linear;
         top: 50%;
+
+
+        @include r(970) {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 
-
-    &__icon {
-        background-color: #fff;
-        box-shadow: 0px 6px 10px 5px rgba(37, 37, 37, 0.07);
-        transition: background-color 0.3s ease-in;
-        border: none;
-        display: inline-block;
-
-        &:not(:last-child) {
-            margin-right: 15px;
-        }
-
+    &__item {
         &:hover {
-            background-color: $subtitle;
-        }
-
-        &:hover svg {
-            fill: #fff;
+            .week-product__hover {
+                visibility: visible;
+                opacity: 1;
+            }
         }
     }
 }
 
-.product-lamp {
+.week-lamp {
     &__items {
         display: flex;
         justify-content: space-between;
@@ -146,17 +157,13 @@
             padding-left: 10px;
             height: 320px;
         }
-
-        &:hover {
-            transform: translateY(2px);
-        }
     }
 
     &__text {
         margin-left: 25px;
 
         @include r(470) {
-            max-width: 130px;
+            max-width: 135px;
         }
     }
 
@@ -208,18 +215,20 @@
     &__link {
         @extend %rubik-500;
         color: $accent;
+        background-color: transparent;
         border: solid 1px rgba(67, 99, 114, .4);
         border-radius: 5px;
         padding: 17px 82px 23px 19px;
         position: relative;
         transition: all 0.3s ease-in-out;
+        font-weight: 500;
 
         @include r(970) {
             padding: 10px 53px 10px 11px;
         }
 
         @include r(470) {
-            padding: 10px 8px 10px 11px;
+            padding-right: 8px;
         }
 
         &::after {

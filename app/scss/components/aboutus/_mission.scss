@@ -1,0 +1,135 @@
+.mission {
+    padding: 120px 0;
+
+    @include r(970) {
+        padding: 60px 0;
+    }
+
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+
+        @include r(1260) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        ;
+    }
+
+    &__img {
+        @include r(1260) {
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        @include r(470) {
+            margin-right: 0;
+        }
+    }
+
+    &__number p,
+    &__heading,
+    &__text {
+        color: $title;
+    }
+
+    &__heading,
+    &__table span {
+        font-weight: 700;
+        @include line-clamp (36px, 1, 2);
+    }
+
+    &__number {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 54px;
+
+        & span {
+            @extend %rubik-700;
+            @include line-clamp (140px, 0.8, 1);
+            color: $subtitle;
+            margin-right: 30px;
+            max-width: 160px;
+
+            @include r(970) {
+                font-size: 100px;
+            }
+        }
+
+        & p {
+            @extend %rubik-400;
+            @include line-clamp (16px, 1.875, 3);
+            max-width: 83px;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 50px;
+        max-width: 510px;
+
+        @include r(970) {
+            margin-bottom: 23px;
+            font-size: 27px;
+        }
+    }
+
+    &__text {
+        @extend %rubik-400;
+        @include line-clamp (16px, 1.87, 4);
+        max-width: 550px;
+        margin-bottom: 64px;
+
+        @include r(970) {
+            @include line-clamp (15px, 1.5, 10);
+            margin-bottom: 30px;
+        }
+    }
+
+    &__table {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 46px;
+        border-top: 3px solid rgba(9, 49, 111, .1);
+
+        @include r(970) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &-item {
+            display: flex;
+            position: relative;
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+
+            & svg {
+                margin-right: 20px;
+            }
+
+            &:not(:last-child):after {
+                position: absolute;
+                content: '';
+                background-image: url(../images/aboutus/mission-verical.svg);
+                height: 81px;
+                width: 1px;
+                right: -21%;
+                top: -19%;
+
+                @include r(970) {
+                    display: none;
+                }
+            }
+        }
+
+        &-text p {
+            font-weight: 700;
+            @include line-clamp (16px, 1, 1);
+            color: #4c4c4c;
+            max-width: 65px;
+        }
+    }
+}

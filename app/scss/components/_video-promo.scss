@@ -1,0 +1,23 @@
+.video-promo {
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 500px;
+
+        @include r(970) {
+            min-height: 275px;
+        }
+
+        &:hover {
+            .video-promo__play {
+                transition: all 0.3s ease;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
