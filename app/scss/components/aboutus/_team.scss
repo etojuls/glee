@@ -80,6 +80,12 @@
         }
     }
 
+    &__img {
+        max-width: 370px;
+        max-height: 322px;
+        object-fit: contain;
+    }
+
     &__box {
         max-width: 325px;
         padding: 30px 20px 28px 24px;

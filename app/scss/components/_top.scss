@@ -1,5 +1,5 @@
-.about {
-    &__top {
+.top {
+    &__wrapper {
         background-color: rgba(163, 187, 200, .2);
         padding: 35px 0;
         text-align: center;
@@ -11,6 +11,5 @@
     &__title {
         @include breadcrumbs-heading;
         padding-bottom: 16px;
-        max-width: 160px;
     }
 }

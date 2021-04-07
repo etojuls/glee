@@ -19,6 +19,10 @@
     }
 
     &__img {
+        max-height: 680px;
+        max-width: 570px;
+        object-fit: contain;
+
         @include r(1260) {
             margin-right: 15px;
             margin-bottom: 15px;
@@ -110,17 +114,19 @@
                 margin-right: 20px;
             }
 
-            &:not(:last-child):after {
-                position: absolute;
-                content: '';
-                background-image: url(../images/aboutus/mission-verical.svg);
-                height: 81px;
-                width: 1px;
-                right: -21%;
-                top: -19%;
+            &:not(:last-child) {
+                &:after {
+                    position: absolute;
+                    content: '';
+                    background-image: url(../images/aboutus/mission-verical.svg);
+                    height: 81px;
+                    width: 1px;
+                    right: -21%;
+                    top: -19%;
 
-                @include r(970) {
-                    display: none;
+                    @include r(970) {
+                        display: none;
+                    }
                 }
             }
         }

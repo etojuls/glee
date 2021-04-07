@@ -30,20 +30,6 @@
         @include r(470) {
             padding: 11px 0;
         }
-
-        &:before {
-            position: absolute;
-            content: "";
-            background-image: url(../../images/circle.svg);
-            height: 20px;
-            width: 20px;
-            top: 67px;
-            left: -8px;
-
-            @include r (1260) {
-                display: none;
-            }
-        }
     }
 
     &__text {
@@ -52,6 +38,20 @@
 
         @include r (1260) {
             margin: 0 auto;
+        }
+
+        &::after {
+            position: absolute;
+            content: "";
+            background-image: url(../../images/circle.svg);
+            height: 20px;
+            width: 20px;
+            top: 33px;
+            left: -49px;
+
+            @include r (1260) {
+                display: none;
+            }
         }
 
         &::before {
